@@ -15,6 +15,13 @@ app.get('/' , (req , res)=>{
   res.send("Hello world");
 });
 
+app.get('/todos',(req,res)=>{
+  Todo.find().then((todos)=>{
+    res.send({todos});
+  })
+},(e)=>{
+  res.status(400).send(e);
+})
 app.post('/todos',(req,res)=>{
   console.log(JSON.stringify(req.body,undefined,2));
 
