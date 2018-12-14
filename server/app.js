@@ -1,6 +1,6 @@
 var express       = require('express');
 var bodyparser    = require('body-parser');
-
+const  _          = require('lodash');
 
 var {mongoose}    = require('./db/mongoose');
 var {Todo}        = require('./models/todo');
@@ -55,5 +55,16 @@ app.get('/todos/:id',(req,res)=>{
   });
 
 });
+
+
+app.post('/users',(req,res)=>{
+  var body  = _.pick(req.body,['email','password']);
+  var user = new User(body);
+  user.save().then((user) =>{
+    res.send(user);
+  }).catch((e)=>{
+    res.status(400).send(e);
+  })
+})
 
 module.exports = app;
