@@ -17,10 +17,6 @@ const users  = [{
   _id  : userTowId,
   email:'arashdevelopermid@gmail.com',
   password:'userTowpass',
-  tokens:[{
-    access:'auth',
-    token:jwt.sign({_id:userTowId,access:'auth'},'abc123').toString()
-  }]
 }];
 
 const todos  = [{
