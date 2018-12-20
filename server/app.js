@@ -24,7 +24,7 @@ app.get('/todos',(req,res)=>{
   res.status(400).send(e);
 })
 app.post('/todos',(req,res)=>{
-  console.log(JSON.stringify(req.body,undefined,2));
+  // console.log(JSON.stringify(req.body,undefined,2));
 
   var todo = new Todo({
     text:req.body.text
