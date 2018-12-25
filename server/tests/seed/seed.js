@@ -17,15 +17,24 @@ const users  = [{
   _id  : userTowId,
   email:'arashdevelopermid@gmail.com',
   password:'userTowpass',
+  tokens:[{
+    access:'auth',
+    token:jwt.sign({_id:userTowId,access:'auth'},'abc123').toString()
+  }]
 }];
 
-const todos  = [{
-  _id  : new ObjectID(),
-  text : "First todo text"
-},{
-  _id  : new ObjectID(),
-  text:"second todo text"
+const todos = [{
+  _id: new ObjectID(),
+  text: 'First test todo',
+  _creator: userOneId
+}, {
+  _id: new ObjectID(),
+  text: 'Second test todo',
+  completed: true,
+  completedAt: 333,
+  _creator: userTowId
 }];
+
 
 const populateTodos = (done)=>{
   Todo.remove({}).then(()=>{
