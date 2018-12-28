@@ -8,7 +8,7 @@ var {User}        = require('./models/user');
 var {authenticate}= require('./middleware/authenticate');
 var {ObjectID}    = require('mongodb');
 var app           = express();
-
+require('./config/config');
 app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 
